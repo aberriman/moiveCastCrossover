@@ -20,11 +20,13 @@ def main():
         cast_list_dict_2, movie_cast_2 = get_cast_list(movie2_id, key)
 
         intersect = intersect_of_casts(movie_cast_1, movie_cast_2)
-        st.write(intersect)
+
+        st.write("Actors in common:")
 
         actor_information = make_actor_dict(intersect, cast_list_dict_1, cast_list_dict_2)
-        st.write(actor_information)
 
+        for actor in intersect:
+            st.image(actor_information[actor]["image"], caption=actor)
 
 if __name__ == '__main__':
     main()
